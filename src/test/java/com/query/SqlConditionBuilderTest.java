@@ -34,7 +34,16 @@ public class SqlConditionBuilderTest {
                                 new AccountCondition(1, (byte) 1, "2625", (byte) 1, "20")
                         ),
                         "and ((nbs = 2620 and ob22 = \"2\") and (nbs = 2625 and ob22 = \"20\"))"
+                },
+                // 4 Negative Test
+                {
+                        List.of(
+                                new AccountCondition(1, (byte) 1, "2620", (byte) 1, "2"),
+                                new AccountCondition(0, (byte) 1, "2625", (byte) 1, "20")
+                        ),
+                        "and ((nbs = 2620 and ob22 = \"2\") and NOT (nbs = 2625 and ob22 = \"20\"))"
                 }
+
         };
     }
 
