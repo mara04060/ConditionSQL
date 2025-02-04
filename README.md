@@ -30,4 +30,4 @@ NBS	Flag_NBS	OB22	Flag_OB22	Пояснення
 *
    Не зрозумыло що робити коли в одному массивы присутня 
  Flag_NBS : 1  та  Flag_NBS : 0
-  test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
+
