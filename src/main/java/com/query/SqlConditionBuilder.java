@@ -10,12 +10,10 @@ public class SqlConditionBuilder {
     }
 
     public String GetSqlCondition(List<AccountCondition> conditions) {
-        // Определяем тип условий
-        boolean isAllowingConditions = conditions.get(0).Flag_NBS == 1;
 
         StringBuilder sqlCondition = new StringBuilder("and ");
 
-        if (isAllowingConditions) {
+        if (conditions.get(0).Flag_NBS == 1) {
             // Positive
             sqlCondition.append("(");
             for (int i = 0; i < conditions.size(); i++) {
@@ -35,19 +33,4 @@ public class SqlConditionBuilder {
 
         return sqlCondition.toString();
     }
-//
-//    public static void main(String[] args) {
-//        SqlConditionBuilder generator = new SqlConditionBuilder();
-//
-//        List<AccountCondition> conditionsAllowing = List.of(
-//                new AccountCondition(1, (byte) 1, "2620", (byte) 1, "2"),
-//                new AccountCondition(1, (byte) 1, "2625", (byte) 1, "20")
-//        );
-//        System.out.println(generator.GetSqlCondition(conditionsAllowing));
-//        List<AccountCondition> conditionsDenying = List.of(
-//                new AccountCondition(3, (byte) 0, "2628", (byte) 1, "12"),
-//                new AccountCondition(3, (byte) 0, "2608", (byte) 0, "2")
-//        );
-//        System.out.println(generator.GetSqlCondition(conditionsDenying));
-//    }
 }
